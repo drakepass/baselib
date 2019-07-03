@@ -269,7 +269,7 @@ func (B *binarySearchTree) Tostring() {
 	toshow(B.element, 0)
 	fmt.Println("-----------------------")
 	//B.toshowNR(B.element)
-	//fmt.Println("------------------------------")
+	//fmt.Println("-----------------------------")
 	B.toshowBreadth(B.element)
 	fmt.Println("bst size: ", B.size)
 }
