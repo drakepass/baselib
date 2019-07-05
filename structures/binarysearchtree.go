@@ -2,16 +2,17 @@ package structures
 
 import (
 	"fmt"
-	"github.com/drakepass/baselib/structures"
 )
 
 type Bst interface {
 	Add(interface{})
 	Delete(interface{})
 	DeleteMax()
-	DeleteMin()
+	DeleteMin() *node
 	Find(interface{}) bool
 	ToString()
+	IsEmpty() bool
+	GetSize() int
 }
 
 type node struct {
@@ -246,7 +247,8 @@ func (B *binarySearchTree) toshowNR(b *node) {
 }
 
 func (B *binarySearchTree) toshowBreadth(b *node) {
-	queue := structures.NewLoopQueue(10)
+	//queue := structures.NewLoopQueue(10)
+	queue := NewLoopQueue(10)
 	err := queue.Enqueue(b)
 	if err != nil {
 		panic(err)
@@ -265,13 +267,21 @@ func (B *binarySearchTree) toshowBreadth(b *node) {
 }
 
 //two way for preorder traversal and the last is another way using breadth first
-func (B *binarySearchTree) Tostring() {
+func (B *binarySearchTree) ToString() {
 	toshow(B.element, 0)
 	fmt.Println("-----------------------")
 	//B.toshowNR(B.element)
 	//fmt.Println("-----------------------------")
 	B.toshowBreadth(B.element)
 	fmt.Println("bst size: ", B.size)
+}
+
+func (B *binarySearchTree) IsEmpty() bool {
+	return B.size == 0
+}
+
+func (B *binarySearchTree) GetSize() int {
+	return B.size
 }
 
 func NewBst() *binarySearchTree {
