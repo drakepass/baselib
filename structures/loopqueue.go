@@ -11,6 +11,7 @@ type Loopqueue interface {
 	Enqueue(interface{}) error
 	Dequeue() (interface{}, error)
 	IsEmpty() bool
+	ToString()
 }
 type queue struct {
 	front    int
@@ -104,7 +105,7 @@ func (q *queue) IsEmpty() bool {
 	return true
 }
 
-func NewLoopQueue(capacity int) *queue {
+func NewLoopQueue(capacity int) Loopqueue {
 	loopq := make([]interface{}, capacity, capacity)
 	loopqueue := &queue{
 		0,

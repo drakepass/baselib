@@ -284,7 +284,7 @@ func (B *binarySearchTree) GetSize() int {
 	return B.size
 }
 
-func NewBst() *binarySearchTree {
+func NewBst() Bst {
 	return &binarySearchTree{
 		0,
 		nil,

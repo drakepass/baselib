@@ -32,7 +32,7 @@ func (s *set) GetSize() int {
 	return s.b.GetSize()
 }
 
-func NewBstSet() *set {
+func NewBstSet() BstSet {
 	var b Bst
 	b = NewBst()
 	return &set{

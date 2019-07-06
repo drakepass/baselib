@@ -2,6 +2,7 @@ package structures
 
 import (
 	"errors"
+	"fmt"
 	"reflect"
 	"strings"
 )
@@ -64,7 +65,7 @@ func (p *pqueue) shiftdown(k int) {
 	}
 	if right < p.size && p.compare(p.queue[left], p.queue[right]) == -1 {
 
-		if p.queue[k].(int) < p.queue[right].(int) {
+		if p.compare(p.queue[k], p.queue[right]) == -1 {
 			p.queue[k], p.queue[right] = p.queue[right], p.queue[k]
 			p.shiftdown(right)
 		}
@@ -105,9 +106,9 @@ func (p *pqueue) compare(a, b interface{}) int {
 	}
 }
 
-//func (p *pqueue) ToString() {
-//	fmt.Println(p.queue)
-//}
+func (p *pqueue) ToString() {
+	fmt.Println(p.queue)
+}
 
 func NewPriorityQueue(capacity int) Loopqueue {
 	return &pqueue{

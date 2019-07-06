@@ -132,7 +132,7 @@ func deleteElement(L *linklist, l *list, e interface{}) *list {
 
 }
 
-func NewLinklist() *linklist {
+func NewLinklist() Linklist {
 	element := list{
 		nil,
 		nil,

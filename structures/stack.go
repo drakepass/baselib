@@ -44,7 +44,7 @@ func (s *arrayStack) IsEmpty() bool {
 	}
 	return false
 }
-func NewStack(capacity int) *arrayStack {
+func NewStack(capacity int) Stack {
 	arr := make([]interface{}, 0, capacity)
 	stack := &arrayStack{
 		0,

@@ -75,7 +75,7 @@ func (a *array) Insert(i int, e interface{}) bool {
 	}
 	return false
 }
-func NewArray(capacity int) *array {
+func NewArray(capacity int) Array {
 	arr := make([]interface{}, 0, capacity)
 	return &array{
 		0,
