@@ -1,4 +1,4 @@
-package basefile
+package drakelib
 
 import (
 	"bufio"
@@ -159,16 +159,16 @@ func WriteFileByIoutil(filepath, content string) (err error) {
 }
 
 //文件拷贝
-func CopeFile(dstfile,srcfile string) (writen int64,err error) {
-	dst,err := os.OpenFile(dstfile,os.O_RDWR|os.O_CREATE,0777)
+func CopeFile(dstfile, srcfile string) (writen int64, err error) {
+	dst, err := os.OpenFile(dstfile, os.O_RDWR|os.O_CREATE, 0777)
 	if err != nil {
 		return
 	}
-	src,err := os.Open(srcfile)
+	src, err := os.Open(srcfile)
 	if err != nil {
 		return
 	}
-	writen,err = io.Copy(dst,src)
+	writen, err = io.Copy(dst, src)
 	return
 }
 
