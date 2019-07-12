@@ -118,6 +118,9 @@ func (B *binarySearchTree) deleteone(node *node, e interface{}) *node {
 		if node.left != nil && node.right != nil {
 			minNode := B.FindMin(node.right)
 			_ = B.toDeleteMin(node.right)
+			if node.right != minNode {
+				minNode.right = node.right
+			}
 			minNode.left = node.left
 			return minNode
 		} else if node.left == nil && node.right == nil {
