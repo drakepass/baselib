@@ -16,7 +16,7 @@ func IsExistIn(arr, e interface{}) bool {
 	case reflect.Array, reflect.Slice:
 		length := val.Len()
 		for i := 0; i < length; i++ {
-			if reflect.DeepEqual(val.Index(1).Interface(), e) {
+			if reflect.DeepEqual(val.Index(i).Interface(), e) {
 				return true
 			}
 		}
